@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+from urllib.parse import urlparse
 import os
 from pathlib import Path
 
@@ -25,7 +26,7 @@ SECRET_KEY = "django-insecure-th&vvmtc=(xf(f-jknxla$5-&0mu1s(z1r4@m!wxz(t6pe27&@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,6 +79,13 @@ WSGI_APPLICATION = "app.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
+
+
+# ... your other imports and settings ...
+
+# Parse the Render External Database URL
+DATABASE_URL = os.getenv('postgres://recipe_api_production_user:px5WdfzQPHR2dJ7Vc6EABaazkAsSayf5@dpg-cnmobogcmk4c73aipmig-a.oregon-postgres.render.com/recipe_api_production')
 
 DATABASES = {
     "default": {
