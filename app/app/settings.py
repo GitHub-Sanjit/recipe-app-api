@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 from urllib.parse import urlparse
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -85,16 +86,23 @@ WSGI_APPLICATION = "app.wsgi.application"
 # ... your other imports and settings ...
 
 # Parse the Render External Database URL
-DATABASE_URL = os.getenv('postgres://recipe_api_production_user:px5WdfzQPHR2dJ7Vc6EABaazkAsSayf5@dpg-cnmobogcmk4c73aipmig-a.oregon-postgres.render.com/recipe_api_production')
+# DATABASE_URL = os.getenv('postgres://recipe_api_production_user:px5WdfzQPHR2dJ7Vc6EABaazkAsSayf5@dpg-cnmobogcmk4c73aipmig-a.oregon-postgres.render.com/recipe_api_production')
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "HOST": os.environ.get("DB_HOST"),
+#         "NAME": os.environ.get("DB_NAME"),  # Update this line
+#         "USER": os.environ.get("DB_USER"),
+#         "PASSWORD": os.environ.get("DB_PASS"),
+#     }
+# }
+# Replace the SQLite DATABASES configuration with PostgreSQL:
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "HOST": os.environ.get("DB_HOST"),
-        "NAME": os.environ.get("DB_NAME"),  # Update this line
-        "USER": os.environ.get("DB_USER"),
-        "PASSWORD": os.environ.get("DB_PASS"),
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://postgres:postgres@localhost:5432/https://recipe-app-api-otn9.onrender.com',
+    )
 }
 
 
