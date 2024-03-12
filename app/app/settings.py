@@ -90,10 +90,10 @@ DATABASE_URL = os.getenv('postgres://recipe_api_production_user:px5WdfzQPHR2dJ7V
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "DB_HOST": os.environ.get("DB_HOST"),
-        "DB_NAME": os.environ.get("DB_NAME"),
-        "DB_USER": os.environ.get("DB_USER"),
-        "DB_PASS": os.environ.get("DB_PASS"),
+        "HOST": os.environ.get("DB_HOST"),
+        "NAME": os.environ.get("DB_NAME"),  # Update this line
+        "USER": os.environ.get("DB_USER"),
+        "PASSWORD": os.environ.get("DB_PASS"),
     }
 }
 
