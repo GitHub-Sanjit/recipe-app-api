@@ -101,7 +101,7 @@ WSGI_APPLICATION = "app.wsgi.application"
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/https://recipe-app-api-otn9.onrender.com',
+        default='postgresql://postgres:postgres@localhost:5432/https://recipe-app-api-d39f.onrender.com',
     )
 }
 
